@@ -7,7 +7,14 @@
     </head>
     <body>
         <a-scene shadow="type:basic;">
-            
+                <a-assets timeout="3000">
+                        <img id="skymap" src="/assets/textures/starmap_g8k.jpg">
+                </a-assets>
+
+                <a-entity id="sky"
+                    geometry="primitive:sphere; radius:500;"
+                    material="shader:flat; src:#skymap; side:back; height:2048; width:2048"
+                ></a-entity>
         </a-scene>    
     </body>
 </html>

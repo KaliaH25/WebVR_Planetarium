@@ -1,0 +1,22 @@
+{
+  "name": "webvr_planetarium",
+  "version": "1.0.0",
+  "description": "IMD3901B Assignment 2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaliaH25/WebVR_Planetarium.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaliaH25/WebVR_Planetarium/issues"
+  },
+  "homepage": "https://github.com/KaliaH25/WebVR_Planetarium#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
