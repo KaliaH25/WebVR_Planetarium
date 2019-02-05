@@ -9,8 +9,15 @@
         <a-scene shadow="type:basic;">
                 <a-assets timeout="3000">
                         <img id="skymap" src="/assets/textures/starmap_g8k.jpg">
+                        <a-asset-item id="planet_mesh" src="/assets/models/planet_mesh.obj"></a-asset-item>
+                        <img id="planet_mtl" src="/assets/textures/Planet_texture.png"></img>
                 </a-assets>
 
+                <a-entity light="type:directional; castShadow:true; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
+                <a-entity light="type: ambient; intensity: 1.0; color:#FFF;"></a-entity>
+                
+                <a-entity obj-model="obj: #planet_mesh" material="src:#planet_mtl"></a-entity>
+                
                 <a-entity id="sky"
                     geometry="primitive:sphere; radius:500;"
                     material="shader:flat; src:#skymap; side:back; height:2048; width:2048"
