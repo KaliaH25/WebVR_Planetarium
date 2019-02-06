@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/KaliaH25/WebVR_Planetarium#readme",
   "dependencies": {
-    "aframe-click-drag-component": "^3.0.1",
     "express": "^4.16.4"
   }
 }
