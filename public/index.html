@@ -23,7 +23,8 @@
                         <a-asset-item id="blkHole_mesh" src="/assets/models/blackHole_mesh.obj"></a-asset-item>
                         <img id="blkHole_mtl" src="/assets/textures/blackHole_texture.png"></img>
 
-                        <audio id="beam-sound" src="assets/sfx/tng_transporter2_clean_top.mp3"></audio>
+                        <audio id="transporter2-sound" src="assets/sfx/tng_transporter2_clean_top.mp3"></audio>
+                        
                     </a-assets>
 
                 <a-entity position ="0 2 0" camera look-controls wasd-controls>
@@ -47,6 +48,9 @@
                     <a-animation begin="click" attribute="rotation" from="0 0 0" to="0 360 0" dur="3000"></a-animation>
                 </a-entity>
                 <a-entity obj-model="obj: #blkHole_mesh" material="src: #blkHole_mtl" position="-5 1 -6" rotation="0 65 0" scale="2 2 2"></a-entity>
+                
+                <!--Loading soundfx-->
+                <a-entity id='beam-sound' sound='src:#transporter2-sound;'></a-entity>
 
                 <a-entity id="sky"
                     geometry="primitive:sphere; radius:500;"
