@@ -4,7 +4,7 @@
         <title>Kalia Hameiri - IMD3901B A2 - WebVR Planitarium</title>
         <script src="/js/aframe.min.js"></script> <!-- https://github.com/aframevr/aframe -->
         <script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
-        <script src ="/js/shine_light_beam.js"></script>
+        <script src ="/js/shine_light_beam.js"></script><!--component for spaceship-->
     </head>
     <body>
         <a-scene shadow="type:basic;">
@@ -23,8 +23,8 @@
                         <a-asset-item id="blkHole_mesh" src="/assets/models/blackHole_mesh.obj"></a-asset-item>
                         <img id="blkHole_mtl" src="/assets/textures/blackHole_texture.png"></img>
 
-                        <audio id="transporter2-sound" src="assets/sfx/tng_transporter2_clean_top.mp3"></audio>
-                        
+                        <audio id="transporter2-sound" src="assets/sfx/tng_transporter2_clean_top.mp3"></audio> <!--source: http://www.trekcore.com/audio/-->
+                        <audio id="transporter1-sound" src="assets/sfx/tng_transporter1.mp3"></audio><!--source: http://www.trekcore.com/audio/-->
                     </a-assets>
 
                 <a-entity position ="0 2 0" camera look-controls wasd-controls>
@@ -50,7 +50,8 @@
                 <a-entity obj-model="obj: #blkHole_mesh" material="src: #blkHole_mtl" position="-5 1 -6" rotation="0 65 0" scale="2 2 2"></a-entity>
                 
                 <!--Loading soundfx-->
-                <a-entity id='beam-sound' sound='src:#transporter2-sound;'></a-entity>
+                <a-entity id='beamUp-sound' sound='src:#transporter2-sound;'></a-entity>
+                <a-entity id='beamDown-sound' sound='src:#transporter1-sound;'></a-entity>
 
                 <a-entity id="sky"
                     geometry="primitive:sphere; radius:500;"

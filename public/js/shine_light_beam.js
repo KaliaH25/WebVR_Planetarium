@@ -10,17 +10,21 @@ AFRAME.registerComponent('shine_light_beam',{
     init: function(){
         const Context_AF = this;
         // define this for important reasons that i dont understand
-        Context_AF.sfx = document.querySelector('#beam-sound');
+        Context_AF.Upsfx = document.querySelector('#beamUp-sound');
+        Context_AF.Dwnsfx = document.querySelector('#beamDown-sound');
 
         Context_AF.el.addEventListener('click', function(){
             console.log('click');
             Context_AF.createLightBeam();
-            Context_AF.sfx.components['sound'].playSound();
+            Context_AF.Upsfx.components['sound'].playSound();
         });
         Context_AF.el.addEventListener('mouseleave',function(){
-            console.log('mouseUp');
+            console.log('mouseLeave');
             Context_AF.playRemoveAnimation();
-            Context_AF.removeLightBeam();
+            Context_AF.Dwnsfx.components['sound'].playSound();
+            document.querySelector('#removingBeam').addEventListener('animationend',function(){
+                Context_AF.removeLightBeam();
+            });
         });
     },
     createLightBeam : function (){
@@ -67,11 +71,13 @@ AFRAME.registerComponent('shine_light_beam',{
         
         let anime = document.createElement('a-animation');
         //animation to play on removal
+        anime.setAttribute('id','removingBeam')
         anime.setAttribute("attribute","height");
         anime.setAttribute("from",2);
         anime.setAttribute("to",0);
         anime.setAttribute("dur",1000);
 
         beam.appendChild(anime);
+        
     }
 });
