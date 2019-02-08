@@ -10,8 +10,8 @@ AFRAME.registerComponent('new_universe',{
         Context_AF.el.addEventListener('click', function(){
             console.log('click');
             if (Context_AF.checkExists() == false){
-               Context_AF.newUniverse();
-             }
+                Context_AF.newUniverse();
+            }
         });
     },
     checkExists: function(){
@@ -152,5 +152,6 @@ AFRAME.registerComponent('new_universe',{
         }
 
         return {x:_x,y:_y,z:_z};  
-    }
+    },
+
 });
