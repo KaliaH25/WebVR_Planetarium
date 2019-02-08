@@ -1,7 +1,4 @@
 'use strict';
-
-
-
 //forces to use modern javascript
 
 AFRAME.registerComponent('shine_light_beam',{
@@ -9,7 +6,7 @@ AFRAME.registerComponent('shine_light_beam',{
     schema: {},
     init: function(){
         const Context_AF = this;
-        // define this for important reasons that i dont understand
+    
         Context_AF.Upsfx = document.querySelector('#beamUp-sound');
         Context_AF.Dwnsfx = document.querySelector('#beamDown-sound');
 
