@@ -44,11 +44,11 @@
                 <!--Loading models-->
                 <a-entity id="ship" shine_light_beam obj-model="obj: #ship_mesh" material="src: #ship_mtl" position="0 2 -4" scale="1 1 1"></a-entity>
 
-                <a-entity id="planet" obj-model="obj: #planet_mesh" material="src: #planet_mtl" position="0 0 -4">
+                <a-entity spin_sfx id="planet" obj-model="obj: #planet_mesh" material="src: #planet_mtl" position="0 0 -4">
                     <a-animation id="plntSpin" begin="click" attribute="rotation" from="0 0 0" to="0 360 0" dur="5000"></a-animation>
                 </a-entity>
                 
-                <a-entity id="asteroid"obj-model="obj: #astr_mesh" material="src: #astr_mtl" position="3 1 -4" scale="0.5 0.5 0.5">
+                <a-entity spin_sfx id="asteroid"obj-model="obj: #astr_mesh" material="src: #astr_mtl" position="3 1 -4" scale="0.5 0.5 0.5">
                     <a-animation id="astrSpin" begin="click" attribute="rotation" from="0 0 0" to="0 -360 0" dur="3000"></a-animation>
                 </a-entity>
                 <a-entity removal_via_blackhole id="blackHole" obj-model="obj: #blkHole_mesh" material="src: #blkHole_mtl" position="-5 1 -6" rotation="0 65 0" scale="2 2 2"></a-entity>
