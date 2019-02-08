@@ -7,6 +7,7 @@
         <script src ="/js/shine_light_beam.js"></script><!--component for spaceship-->
         <script src="/js/removal_via_blackhole.js"></script><!--component for black hole interaction-->
         <script src="/js/spin_sfx.js"></script><!--component to play sound for spin animation-->
+        <script src="js/new_universe.js"></script><!--component to reinit universe-->
     </head>
     <body>
         <a-scene shadow="type:basic;">
@@ -51,7 +52,7 @@
                 <a-entity spin_sfx id="asteroid"obj-model="obj: #astr_mesh" material="src: #astr_mtl" position="3 1 -4" scale="0.5 0.5 0.5">
                     <a-animation id="astrSpin" begin="click" attribute="rotation" from="0 0 0" to="0 -360 0" dur="3000"></a-animation>
                 </a-entity>
-                <a-entity removal_via_blackhole id="blackHole" obj-model="obj: #blkHole_mesh" material="src: #blkHole_mtl" position="-5 1 -6" rotation="0 65 0" scale="2 2 2"></a-entity>
+                <a-entity removal_via_blackhole new_universe id="blackHole" obj-model="obj: #blkHole_mesh" material="src: #blkHole_mtl" position="-5 1 -6" rotation="0 65 0" scale="2 2 2"></a-entity>
                 
                 <!--Loading soundfx-->
                 <a-entity id='beamUp-sound' sound='src:#transporter2-sound;' position="0 2 -4"></a-entity>
