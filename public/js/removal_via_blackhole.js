@@ -33,33 +33,57 @@ AFRAME.registerComponent('removal_via_blackhole',{
 
     absorbedAnimation: function(){
         const Context_AF = this;
+        let x,y,z; 
 
-        //move ship towards blackhole 
+        x = Context_AF.el.getAttribute('position').x;
+        y = Context_AF.el.getAttribute('position').y;
+        z = Context_AF.el.getAttribute('position').z;
+        let xyzHole = x.toString() + " "+ y.toString() + " " + z.toString();
+        //get xyz of black hole
+
+        
         const ship = document.querySelector('#ship');
-        console.log(Context_AF.el.getAttribute('position').x);
-        let x = Context_AF.el.getAttribute('position').x;
-        let y = Context_AF.el.getAttribute('position').y;
-        let z = Context_AF.el.getAttribute('position').z;
-        let xyz = toString(x) + "  y";
-        //find out why these are suddenly undefined
-        console.log(xyz);
+        x = ship.getAttribute('position').x;
+        y = ship.getAttribute('position').y;
+        z = ship.getAttribute('position').z;
+        let xyzShip = x.toString() + " "+ y.toString() + " " + z.toString();
+        //get xyz ship position 
+        
+        const planet = document.querySelector('#planet');
+        x = planet.getAttribute('position').x;
+        y = planet.getAttribute('position').y;
+        z = planet.getAttribute('position').z;
+        let xyzPlanet = x.toString() + " "+ y.toString() + " " + z.toString();
+        //get xyz of planet
 
+        const astr = document.querySelector('#asteroid');
+        let x = astr.getAttribute('position').x;
+        let y = astr.getAttribute('position').y;
+        let z = astr.getAttribute('position').z;
+        let xyzAstr = x.toString() + " "+ y.toString() + " " + z.toString();
+        //get xyz ship position 
         
-        //let pos = Context_AF.el.getAttribute('position');
-        let anime = document.createElement('a-animation');
+        let animeMove = document.createElement('a-animation');
         //animation to play on creation
-        anime.setAttribute("attribute","position");
-        anime.setAttribute("id","moveship");
-        //anime.setAttribute("begin","move");
-        //anime.setAttribute("from",{x:ship.getAttribute('position').x,y:ship.getAttribute('position').y,z:ship.getAttribute('position').z});
-        anime.setAttribute("from",ship.getAttribute('position'));
-        anime.setAttribute("to","0 0 0");
-        //anime.setAttribute("to",{x:Context_AF.el.getAttribute('position').x, y:Context_AF.el.getAttribute('position').y, z:Context_AF.el.getAttribute('position').z});
-        anime.setAttribute("dur",1000);
-        
+        animeMove.setAttribute("attribute","position");
+        animeMove.setAttribute("id","moveship");
+        animeMove.setAttribute("from",xyzShip);
+        animeMove.setAttribute("to",xyzHole);
+        animeMove.setAttribute("dur",2000);
+        //move ship towards blackhole 
+        ship.appendChild(animeMove);
+
+        let animeScale = document.createElement('a-animation');
+        //animation to play on creation
+        animeScale.setAttribute("attribute","scale");
+        animeScale.setAttribute("id","scaleship");
+        animeScale.setAttribute("from","1 1 1");
+        animeScale.setAttribute("to","2 1 1");
+        animeScale.setAttribute("dur",1000);
+        //move ship towards blackhole 
         ship.appendChild(anime);
         
-        //ship.emit("move");
+        
     }
     
 });
