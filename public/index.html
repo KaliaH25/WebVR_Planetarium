@@ -6,6 +6,7 @@
         <script src="/js/spherical-env-map.js"></script> <!-- https://github.com/aframevr/aframe -->
         <script src ="/js/shine_light_beam.js"></script><!--component for spaceship-->
         <script src="/js/removal_via_blackhole.js"></script><!--component for black hole interaction-->
+        <script src="/js/spin_sfx.js"></script><!--component to play sound for spin animation-->
     </head>
     <body>
         <a-scene shadow="type:basic;">
@@ -26,6 +27,8 @@
 
                         <audio id="transporter2-sound" src="assets/sfx/tng_transporter2_clean_top.mp3"></audio> <!--source: http://www.trekcore.com/audio/-->
                         <audio id="transporter1-sound" src="assets/sfx/tng_transporter1.mp3"></audio><!--source: http://www.trekcore.com/audio/-->
+                        <audio id="slurp-sound" src="assets/sfx/217813__cgrote__slurp-1-6.mp3"></audio><!--source:https://freesound.org/people/cgrote/sounds/217813/-->
+                        <audio id="whoosh-sound" src="assets/sfx/449990__djt4nn3r__whoosh-long-low.mp3"></audio><!--source:https://freesound.org/people/DJT4NN3R/sounds/449990/-->
                     </a-assets>
 
                 <a-entity position ="0 2 0" camera look-controls wasd-controls>
@@ -42,17 +45,20 @@
                 <a-entity id="ship" shine_light_beam obj-model="obj: #ship_mesh" material="src: #ship_mtl" position="0 2 -4" scale="1 1 1"></a-entity>
 
                 <a-entity id="planet" obj-model="obj: #planet_mesh" material="src: #planet_mtl" position="0 0 -4">
-                    <a-animation begin="click" attribute="rotation" from="0 0 0" to="0 360 0" dur="5000"></a-animation>
+                    <a-animation id="plntSpin" begin="click" attribute="rotation" from="0 0 0" to="0 360 0" dur="5000"></a-animation>
                 </a-entity>
                 
                 <a-entity id="asteroid"obj-model="obj: #astr_mesh" material="src: #astr_mtl" position="3 1 -4" scale="0.5 0.5 0.5">
-                    <a-animation begin="click" attribute="rotation" from="0 0 0" to="0 -360 0" dur="3000"></a-animation>
+                    <a-animation id="astrSpin" begin="click" attribute="rotation" from="0 0 0" to="0 -360 0" dur="3000"></a-animation>
                 </a-entity>
                 <a-entity removal_via_blackhole id="blackHole" obj-model="obj: #blkHole_mesh" material="src: #blkHole_mtl" position="-5 1 -6" rotation="0 65 0" scale="2 2 2"></a-entity>
                 
                 <!--Loading soundfx-->
-                <a-entity id='beamUp-sound' sound='src:#transporter2-sound;'></a-entity>
-                <a-entity id='beamDown-sound' sound='src:#transporter1-sound;'></a-entity>
+                <a-entity id='beamUp-sound' sound='src:#transporter2-sound;' position="0 2 -4"></a-entity>
+                <a-entity id='beamDown-sound' sound='src:#transporter1-sound;' position="0 2 -4"></a-entity>
+                <a-entity id="absorbed-sound" sound='src:#slurp-sound;' position="-5 1 -6"></a-entity>
+                <a-entity id="spin-sound" sound="src:#whoosh-sound;"></a-entity>
+
 
                 <a-entity id="sky"
                     geometry="primitive:sphere; radius:500;"

@@ -7,12 +7,18 @@ AFRAME.registerComponent('removal_via_blackhole',{
     init: function(){
         const Context_AF = this;
 
+        Context_AF.sfx = document.querySelector('#absorbed-sound');
+
         Context_AF.el.addEventListener('click', function(){
             console.log('click');
             if (Context_AF.checkExists() == true){
+                Context_AF.sfx.components['sound'].playSound();
                 Context_AF.absorbedShipAnime();
+                Context_AF.sfx.components['sound'].playSound();
                 Context_AF.absorbedPlntAnime();
+                Context_AF.sfx.components['sound'].playSound();
                 Context_AF.absorbedAstrAnime();
+                
                         
                 document.querySelector('#shipAbsorbedAnimation').addEventListener('animationend',function(){
                     const ship = document.querySelector('#ship');
